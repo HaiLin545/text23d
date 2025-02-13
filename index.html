@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="FocalGaussian: Text-Driven 3D Human Generation with Focal Paradigm">
+    <meta name="description" content="FocusGaussian: Text-Driven 3D Human Generation with Focal Paradigm">
     <meta name="keywords" content="3D Gaussian, Diffusion Model">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FocalGaussian: Text-Driven 3D Human Generation with Focal Paradigm</title>
+    <title>FocusGaussian: Enhancing Text-Driven 3D Human Generation with Body Part Focus</title>
 
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
     <link rel="stylesheet" href="./static/css/bulma.min.css">
@@ -36,7 +36,7 @@
             <div class="container is-max-desktop">
                 <div class="columns is-centered">
                     <div class="column has-text-centered">
-                        <h1 class="title is-1 publication-title">FocalGaussian: Text-Driven 3D Human Generation with Focal Paradigm</h1>
+                        <h1 class="title is-1 publication-title">FocusGaussian: Text-Driven 3D Human Generation with Focal Paradigm</h1>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
     <div class="container is-max-desktop">
       <div class="hero-body">
         <h2 class="subtitle has-text-centered">
-          <span class=FocalGaussian></span> Our FocalGaussian generates high fidelity and 3D-consistent human models with delicate human
+          <span class=FocusGaussian></span> Our FocusGaussian generates high fidelity and 3D-consistent human models with delicate human
           parts like hands from text prompts. </span>
         </h2>
         <video id="teaser" autoplay muted loop playsinline height="100%">
@@ -81,13 +81,13 @@
             </p>
             <p>
               Our key idea is to focus on the critical components of the human body parts to impose a more precise
-              control while optimizing the 3D model. Following this, we propose FocalGaussian. Specifically, to
+              control while optimizing the 3D model. Following this, we propose FocusGaussian. Specifically, to
               eliminate the local blurry problem, we propose a focal depth loss that recovers delicate human body parts
               by aligning the depth of local body parts in the 3D human model and SMPL-X. Moreover, to address the Janus
               problem, we propose a focal view-dependent prompt that emphasizes and imposes view direction control on
               the keywords of local body parts.
             </p>
-            <p>Extensive experiments demonstrate the superiority of our FocalGaussian across a variety of prompts.
+            <p>Extensive experiments demonstrate the superiority of our FocusGaussian across a variety of prompts.
               Critically, our generated 3D humans accurately capture complex features of human body parts, particularly
               the hands.</p>
           </div>
@@ -111,13 +111,13 @@
 
           <figure class="image" style="width: 100%;"> <!-- Explicit width for image container -->
             <img src="static/myvideos/motivation.png"
-              alt="An overview of the FocalGaussian process, depicting the creation of a realistic 3D avatar from a text prompt"
+              alt="An overview of the FocusGaussian process, depicting the creation of a realistic 3D avatar from a text prompt"
               style="width: 100%; height: auto;">
           </figure>
 
           <div class="content has-text-justified" style="width: 100%;"> <!-- Explicit width for text container -->
             <p>
-              Motivation of our proposed FocalGaussian. (a) T2I models struggle to synthesize delicate
+              Motivation of our proposed FocusGaussian. (a) T2I models struggle to synthesize delicate
               body parts like hands. (b) Employing prompt weighting on keywords helps match the generated
               content and text prompt. (c) Adding view direction while generating local body parts provides a more
               precise view control. \( \mathcal{T} \) is the text prompt "a Joker" in this case.
@@ -140,20 +140,20 @@
           <h2 class="title is-3">Method</h2>
           <!-- Image and Text within the same column wrapper -->
           <figure class="image">
-            <img src="static/myvideos/overview.png"
-              alt="Overview of the FocalGaussian process showing how a 3D avatar is created from a text prompt"
+            <img src="static/myvideos/overview_3_00.png"
+              alt="Overview of the FocusGaussian process showing how a 3D avatar is created from a text prompt"
               style="width:100%; height:auto;">
           </figure>
           <div class="content has-text-justified">
             <p>
-              Overview of our FocalGaussian. Given a text prompt \( \mathcal{T} \), we create a realistic 3D avatar with
-              delicate body parts like hands and face that matches \( \mathcal{T} \). The key idea of FocalGaussian is
+              Overview of our FocusGaussian. Given a text prompt \( \mathcal{T} \), we create a realistic 3D avatar with
+              delicate body parts like hands and face that matches \( \mathcal{T} \). The key idea of FocusGaussian is
               to focus on
               the key components of the human body. We first initialize a 3D Gaussian Splatting (3DGS) model
               with a SMPL-X model. During training, to recover delicate human parts, we design focal depth loss
-              (c.f. Sec. 3.1) to align the visible hand depth of SMPL-X and 3DGS. Moreover, to address the Janus
+              to align the visible hand depth of SMPL-X and 3DGS. Moreover, to address the Janus
               (multi-face) problem, we design a focal view-dependent prompt Score Distillation Sampling loss
-              (c.f. Sec. 3.2) that uses our designed prompts \( \mathcal{T}_{LV} \) to up-weight the keywords of body
+              that uses our designed prompts \( \mathcal{T}_{LV} \) to up-weight the keywords of body
               parts and to
               impose finer view control on a fixed diffusion model.
             </p>
@@ -171,13 +171,13 @@
           <h2 class="title is-3">Comparison Visual Results</h2>
           <!-- Image and Text within the same column wrapper -->
           <figure class="image">
-            <img src="static/myvideos/comparison_v4_00.png"
-              alt="Overview of the FocalGaussian process showing how a 3D avatar is created from a text prompt"
+            <img src="static/myvideos/comparison_v5_00.png"
+              alt="Overview of the FocusGaussian process showing how a 3D avatar is created from a text prompt"
               style="width:100%; height:auto;">
           </figure>
           <div class="content has-text-justified">
             <p>
-              Comparisons with general Text-to-3D and 3D Human Models. Our FocalGaussian generates 3D human with realistic human body parts and 3D consistency. Note that the blurry and unrealistic results are highlighted with green rectangles; the Janus problem are highlighted with orange arrows.
+              Comparisons with general Text-to-3D and 3D Human Models. Our FocusGaussian generates 3D human with realistic human body parts and 3D consistency. Note that the blurry and unrealistic results are highlighted with green rectangles; the Janus problem are highlighted with orange arrows.
             </p>
           </div>
         </div>
@@ -258,7 +258,7 @@
           <source src="static/myvideos/vis_animation_humangau.mp4" type="video/mp4">
         </video>
         <p>
-          We demomstrate the animation of 3D human model generated by our FocalGaussian. 
+          We demomstrate the animation of 3D human model generated by our FocusGaussian. 
         </p>
       </div>
       <!--/ Re-rendering. -->
